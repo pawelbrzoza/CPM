@@ -259,19 +259,7 @@ namespace CPM
             listActivity[0].First.EarliestTime = 0;
             listActivity[0].First.LatestTime = 0;
             listActivity[0].First.SpareTime = 0;
-            //listActivity[0].Next.EarliestTime = listActivity[0].Duration;
-
-            // WERSJA BEZ WYSZUKIWANIA NAJDLUZSZEGO CZASU
-            //for (int i = 0; i<listActivity.Count; i++)
-            //{
-            //    for (int j = i + 1; j < listActivity.Count; j++)
-            //    {
-            //        if (listActivity[i].End == listActivity[j].Begin)
-            //        {
-            //            listActivity[j].First.EarliestTime = listActivity[i].Duration + listActivity[i].First.EarliestTime;
-            //        }
-            //    }
-            //}
+           
 
             // WERSJA Z WYSZUKIWANIEM NAJDLUZSZEGO CZASU (IMPROVED)
 
