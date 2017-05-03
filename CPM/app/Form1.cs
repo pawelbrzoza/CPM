@@ -230,21 +230,41 @@ namespace CPM
                 var tab = "";
                 var arr = new List<int>();
 
-                for( int i = 0; i < l.listActivity.Count; i++ )
+                if (checkBox1.Checked == true)
                 {
-                    temp += l.listActivity[i].Duration;
-                    if( ( l.listActivity[i].First.SpareTime + l.listActivity[i].Next.SpareTime ) == 0 &&
-                        ( temp - l.listActivity[i].Next.EarliestTime ) == 0 )
+                    for( int i = 0; i < l.listActivity.Count; i++ )
                     {
-                        tab += l.listActivity[i].Name + " ";
-                        arr.Add(i);
-                        temp2 = temp;
-                    }
-                    else
-                    {
-                        temp = temp2;
+                        temp += l.listActivity[i].Duration;
+                        if( ( l.listActivity[i].First.SpareTime + l.listActivity[i].Next.SpareTime ) == 0 &&
+                            ( temp - l.listActivity[i].Next.EarliestTime ) == 0 )
+                        {
+                            tab += l.listActivity[i].Name + " ";
+                            arr.Add(i);
+                            temp2 = temp;
+                        }
+                        else
+                            temp = temp2;
                     }
                 }
+                else
+                {
+                    for( int i = 0; i < l.listActivity.Count; i++ )
+                    {
+                        temp += l.listActivity[i].Duration;
+                        if( ( l.listActivity[i].First.SpareTime + l.listActivity[i].Next.SpareTime ) == 0 &&
+                            ( temp - l.listActivity[i].Next.EarliestTime ) == 0 )
+                        {
+                            tab += l.listActivity[i].Begin + "-" + l.listActivity[i].End + " ";
+                            arr.Add(i);
+                            temp2 = temp;
+                        }
+                        else
+                            temp = temp2;
+                    }
+
+                }
+                
+
                 label10.Text = tab;
                 label2.Text = Convert.ToString(temp2);
 
@@ -506,6 +526,27 @@ namespace CPM
             });
             
             findCMP_Click(null, null);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == false)
+                checkBox2.Checked = true;
+            else
+                checkBox2.Checked = false;
+
+
+
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox2.Checked == false)
+                checkBox1.Checked = true;
+            else
+                checkBox1.Checked = false;
+            
         }
     }
 }

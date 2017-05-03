@@ -20,22 +20,27 @@ namespace CPM.app
             Text = "CPM - wykres Gantta";
             this.arr = criticaList;
             this._l = l;
+
+
             tableLayoutPanel1.ColumnCount = _l.listActivity[_l.listActivity.Count-1].Next.EarliestTime ;
             tableLayoutPanel1.RowCount = _l.listActivity.Count;
-            //tableLayoutPanel1.ColumnStyles.Add;
-            //tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
-            //tableLayoutPanel1.ColumnStyles[0].Width = 25F;
-            for (int i = 1; i < tableLayoutPanel1.ColumnCount+1; i++)
+            
+            tableLayoutPanel1.ColumnStyles[0].SizeType = SizeType.Absolute;
+            tableLayoutPanel1.ColumnStyles[0].Width = 40;
+            for (int i = 0; i < tableLayoutPanel1.ColumnCount; i++)
             {
                 
-                tableLayoutPanel1.ColumnStyles.Add( new ColumnStyle(SizeType.Percent));
-                tableLayoutPanel1.Controls.Add(new Label() { Text = Convert.ToString(i) }, i-1,0);
+                tableLayoutPanel1.ColumnStyles.Add( new ColumnStyle(SizeType.Absolute, 40));
+                tableLayoutPanel1.Controls.Add(new Label() { Text = Convert.ToString(i+1) }, i, 0);
             }
+
+            tableLayoutPanel1.RowStyles[0].SizeType = SizeType.Absolute;
+            tableLayoutPanel1.RowStyles[0].Height = 20;
+
+            int h = (tableLayoutPanel1.Height-20) / (tableLayoutPanel1.RowCount + 1);
             for( int i = 0; i < tableLayoutPanel1.RowCount; i++ )
             {
-
-                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-                //tableLayoutPanel1.Controls.Add(new Label() { Text = Convert.ToString(i) }, i - 1, 0);
+                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, h));
             }
 
 
@@ -66,21 +71,7 @@ namespace CPM.app
 
             }
 
-
-            //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute));
-
-            // For Add New Row (Loop this code for add multiple rows)
-            //tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
-
-            //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            //tableLayoutPanel1.Controls.Add(new Label() { Text = "Street, City, State" }, 1, tableLayoutPanel1.RowCount - 1);
-            //tableLayoutPanel1.Controls.Add(new Label() { Text = "888888888888" }, 2, tableLayoutPanel1.RowCount - 1);
-            //tableLayoutPanel1.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, 3, tableLayoutPanel1.RowCount - 1);
-            //tableLayoutPanel1.;
-
         }
-
-        
 
         private void Form2_Load(object sender, EventArgs e)
         {
