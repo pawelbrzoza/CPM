@@ -96,6 +96,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="documentation\metodaCPM.pdf" />
     <None Include="documentation\Sprawozdanie-CPM.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
