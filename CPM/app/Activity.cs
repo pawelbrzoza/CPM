@@ -8,7 +8,6 @@ namespace CPM
 {
     public class Activity
     {
-
         public string Name { get; set; }
         public int Duration { get; set; }
         public int Begin { get; set; }
@@ -16,7 +15,7 @@ namespace CPM
 
         public Event First { get; private set; }
         public Event Next { get; private set; }
-
+ 
         public Activity()
         {
             First = new Event();

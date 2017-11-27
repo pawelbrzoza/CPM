@@ -11,7 +11,6 @@ using CPM.app;
 
 namespace CPM
 {
-   
     public partial class Form1: Form
     {
         private ListActiv l = new ListActiv();
@@ -92,15 +91,14 @@ namespace CPM
             listBox1.Items.Add("Nazwa: " + name.Text + "  Czas trwania: " + duration.Text + "  Początek: " +
                                    begin.Text + "  Koniec: " + end.Text);
 
-                l.listActivity.Add(new Activity()
-                {
-                    Name = name.Text,
-                    Duration = Convert.ToInt16(duration.Text),
-                    Begin = Convert.ToInt16(begin.Text),
-                    End = Convert.ToInt16(end.Text)
-                });
-            
-           
+            l.listActivity.Add(new Activity()
+            {
+                Name = name.Text,
+                Duration = Convert.ToInt16(duration.Text),
+                Begin = Convert.ToInt16(begin.Text),
+                End = Convert.ToInt16(end.Text)
+            });
+
         }
 
         private void findCMP_Click(object sender, EventArgs e)
@@ -117,11 +115,8 @@ namespace CPM
                                    act.Begin + "  Koniec: " + act.End);
             }
 
-
-
             try
             {
-                
                 //ustawienie początku zaczynając od 0 lub 1 !!!!
                 for (int i = 0; i < l.listActivity.Count; i++)
                 {
@@ -262,12 +257,10 @@ namespace CPM
                     }
 
                 }
-                
 
                 label10.Text = tab;
                 label2.Text = Convert.ToString(temp2);
 
-                
                 foreach (var ar in arr)
                 {
                     listBox1.SetSelected(ar,true);
@@ -281,7 +274,6 @@ namespace CPM
                 MessageBox.Show("Wproawdź czynności!");
             }
         }
-
 
         private int maxDuration(int val)
         {
@@ -341,7 +333,6 @@ namespace CPM
 
             listBox1.DataSource = null;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             //wyczyszczenie listboxa
@@ -447,11 +438,8 @@ namespace CPM
             //    Begin = 9,
             //    End = 10
             //});
-            
-            findCMP_Click(null, null);
-            
+            findCMP_Click(null, null); 
         }
-       
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -533,10 +521,6 @@ namespace CPM
                 checkBox2.Checked = true;
             else
                 checkBox2.Checked = false;
-
-
-
-
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -545,7 +529,6 @@ namespace CPM
                 checkBox1.Checked = true;
             else
                 checkBox1.Checked = false;
-            
         }
     }
 }
